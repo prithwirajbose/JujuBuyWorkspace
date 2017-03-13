@@ -1,1 +1,11 @@
-com\jujubuy\BaseAction.class
+com\jujubuy\bean\CartBean.class
+com\jujubuy\bean\ProductUnit.class
+com\jujubuy\utils\CommonConstants$SessionKeys.class
+com\jujubuy\action\PagesAction.class
+com\jujubuy\utils\CommonConstants.class
+com\jujubuy\bean\ProductCategory.class
+com\jujubuy\bean\ProductPriceBean.class
+com\jujubuy\bean\ProductBean.class
+com\jujubuy\bean\ProductImage.class
+com\jujubuy\action\BaseAction.class
+com\jujubuy\bean\OrderItemBean.class

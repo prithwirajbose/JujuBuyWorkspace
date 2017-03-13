@@ -43,11 +43,11 @@
 						<div class="social-icons">
 							<h4>Follow Us</h4>
 					   		  <ul>
-							      <li><a href="#" target="_blank"><img src="images/facebook.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"><img src="images/twitter.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"><img src="images/skype.png" alt="" /> </a></li>
-							      <li><a href="#" target="_blank"> <img src="images/dribbble.png" alt="" /></a></li>
-							      <li><a href="#" target="_blank"> <img src="images/linkedin.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="<%=request.getContextPath() %>/resources/images/facebook.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="<%=request.getContextPath() %>/resources/images/twitter.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="<%=request.getContextPath() %>/resources/images/skype.png" alt="" /> </a></li>
+							      <li><a href="#" target="_blank"> <img src="<%=request.getContextPath() %>/resources/images/dribbble.png" alt="" /></a></li>
+							      <li><a href="#" target="_blank"> <img src="<%=request.getContextPath() %>/resources/images/linkedin.png" alt="" /></a></li>
 							      <div class="clear"></div>
 						     </ul>
    	 					</div>

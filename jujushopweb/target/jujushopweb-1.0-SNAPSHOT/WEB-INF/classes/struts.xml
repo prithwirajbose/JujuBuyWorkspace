@@ -3,20 +3,43 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
-    <constant name="struts.devMode" value="true"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+<constant name="struts.custom.i18n.resources" value="message" />
+	<package name="default" namespace="/" extends="struts-default">
 
-    <package name="default" namespace="/" extends="struts-default">
-        <result-types>
-			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
-        <default-action-ref name="index"/>
+		<!-- <interceptors> <interceptor name="exceptionInterceptor" class="com.jujubuy.interceptor.ExceptionInterceptor" 
+			/> <interceptor-stack name="publicStack"> <interceptor-ref name="exceptionInterceptor" 
+			/> </interceptor-stack> </interceptors> <default-interceptor-ref name="publicStack"></default-interceptor-ref> -->
 
-        <action name="index" class="com.jujubuy.BaseAction" method="execute">
-            <result name="success" type="tiles">indexLayout</result>
-        </action>
+		<default-action-ref name="index" />
+		<global-results>
+			<result name="exception">/pages/exception.jsp</result>
+			<result name="http404" type="httpheader">
+				<param name="error">404</param>
+				<param name="errorMessage">Requested page was not found</param>
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		<action name="index" class="com.jujubuy.action.PagesAction" method="index">
+			<result name="success" type="tiles">indexLayout</result>
+		</action>
 
-    </package>
+	</package>
 
-    <!-- Add addition packages and configuration here. -->
+	<package name="pages" namespace="/pages/" extends="default">
+
+		<action name=".*" class="com.jujubuy.action.PagesAction"
+			method="{1}">
+			<result name="success" type="tiles">${layoutName}</result>
+		</action>
+	</package>
+
+	<!-- Add addition packages and configuration here. -->
 </struts>

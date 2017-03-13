@@ -22,12 +22,6 @@
 			<version>${struts2.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-config-browser-plugin</artifactId>
-			<version>${struts2.version}</version>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-tiles-plugin -->
 		<dependency>
 			<groupId>org.apache.struts</groupId>
@@ -36,20 +30,6 @@
 			<scope>compile</scope>
 		</dependency>
 
-
-		<dependency>
-			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-junit-plugin</artifactId>
-			<version>${struts2.version}</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.5</version>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -71,11 +51,11 @@
 			<version>2.2.2</version>
 		</dependency>
 
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-simple</artifactId>
-    <version>1.6.1</version>
-</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.1</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -98,17 +78,80 @@
 
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<source>1.5</source>
-					<target>1.5</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+	<!-- <build> <plugins> <plugin> <artifactId>maven-compiler-plugin</artifactId> 
+		<version>3.3</version> <configuration> <encoding>UTF-8</encoding> <source>1.5</source> 
+		<target>1.5</target> </configuration> </plugin> </plugins> </build> -->
+	<profiles>
+		 <!-- this profile will allow files in environment-specific folders like resources-prod or resources-test
+         to be added to the resulting war's classpath under WEB-INF/classes
+         to activate the profile, simply add '-Denvironment=prod' to your maven build command 
+         this also works fine with war:inplace and war:exploded 
+    -->
+    <profile>
+        <id>dev</id>
+        <activation>
+            <property>
+                <name>!environment</name>
+            </property>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+        	<environment>dev</environment>
+        </properties>
+        <build>
+        <plugins>   
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <webResources>
+                    <resource>
+                        <directory>src/main/envresources/${environment}</directory>
+                        <targetPath>WEB-INF/classes</targetPath>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <targetPath>WEB-INF/classes</targetPath>
+                    </resource>
+                </webResources>
+                <warName>jujushopweb</warName>
+            </configuration>
+          </plugin>             
+        </plugins>
+        </build>
+    </profile>
+    <profile>
+        <id>prod</id>
+        <activation>
+            <property>
+                <name>environment</name>
+            </property>
+            <activeByDefault>false</activeByDefault>
+        </activation>
+        <build>
+        <plugins>   
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <webResources>
+                    <resource>
+                        <directory>src/main/envresources/${environment}</directory>
+                        <targetPath>WEB-INF/classes</targetPath>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <targetPath>WEB-INF/classes</targetPath>
+                    </resource>
+                </webResources>
+                <warName>jujushopweb</warName>
+            </configuration>
+          </plugin>             
+        </plugins>
+        </build>
+    </profile>
+
+	</profiles>
 </project>

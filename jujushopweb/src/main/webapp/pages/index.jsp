@@ -13,7 +13,7 @@
     	</div>
 	      <div class="section group">
 				<div class="grid_1_of_4 images_1_of_4">
-					 <a href="preview.html"><img src="images/feature-pic1.jpg" alt="" /></a>
+					 <a href="preview.html"><img src="<%=request.getContextPath() %>/resources/images/feature-pic1.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					<div class="price-details">
 				       <div class="price-number">
@@ -27,7 +27,7 @@
 					 
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="images/feature-pic2.jpg" alt="" /></a>
+					<a href="preview.html"><img src="<%=request.getContextPath() %>/resources/images/feature-pic2.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					<div class="price-details">
 				       <div class="price-number">
@@ -41,7 +41,7 @@
 				    
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="images/feature-pic3.jpg" alt="" /></a>
+					<a href="preview.html"><img src="<%=request.getContextPath() %>/resources/images/feature-pic3.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					 <div class="price-details">
 				       <div class="price-number">
@@ -54,7 +54,7 @@
 					</div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="images/feature-pic4.jpg" alt="" /></a>
+					<a href="preview.html"><img src="<%=request.getContextPath() %>/resources/images/feature-pic4.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					<div class="price-details">
 				       <div class="price-number">
@@ -78,7 +78,7 @@
     	</div>
 			<div class="section group">
 				<div class="grid_1_of_4 images_1_of_4">
-					 <a href="preview.html"><img src="images/new-pic1.jpg" alt="" /></a>					
+					 <a href="preview.html"><img src="<%=request.getContextPath() %>/resources/images/new-pic1.jpg" alt="" /></a>					
 					 <h2>Lorem Ipsum is simply </h2>
 					<div class="price-details">
 				       <div class="price-number">
@@ -91,7 +91,7 @@
 					</div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="images/new-pic2.jpg" alt="" /></a>
+					<a href="preview.html"><img src="<%=request.getContextPath() %>/resources/images/new-pic2.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					 <div class="price-details">
 				       <div class="price-number">
@@ -104,7 +104,7 @@
 					</div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="images/new-pic4.jpg" alt="" /></a>
+					<a href="preview.html"><img src="<%=request.getContextPath() %>/resources/images/new-pic4.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					<div class="price-details">
 				       <div class="price-number">
@@ -117,7 +117,7 @@
 					</div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
-				 <a href="preview.html"><img src="images/new-pic3.jpg" alt="" /></a>
+				 <a href="preview.html"><img src="<%=request.getContextPath() %>/resources/images/new-pic3.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>					 
 					 <div class="price-details">
 				       <div class="price-number">
